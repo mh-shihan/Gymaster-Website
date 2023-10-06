@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Yoga & Flexibility",
+    "image": "https://i.ibb.co/DRfJC0Q/yoga-lexibility.png",
+    "description": "Visit our gym for a day and experience our fitness facilities. Try out our equipment, enjoy a workout, and get a taste of what our gym has to offer.",
+    "price": 19.99
+  },
+  {
+    "id": 2,
+    "name": "Weight Lifting",
+    "image": "https://i.ibb.co/vYt131X/weignt-liftin.jpg",
+    "description": "Upgrade your workout wardrobe with our premium fitness apparel. Stay comfortable and stylish during your gym sessions with our high-quality activewear.",
+    "price": 29.99
+  },
+  {
+    "id": 3,
+    "name": "Body Building",
+    "image": "https://i.ibb.co/xMWj5TT/body-building.png",
+    "description": "Visit our gym for a day and experience our fitness facilities. Try out our equipment, enjoy a workout, and get a taste of what our gym has to offer.",
+    "price": 14.99
+  },
+  {
+    "id": 4,
+    "name": "Musclemax Workouts",
+    "image": "https://i.ibb.co/Gpt5fQP/musclemax-workouts.png",
+    "description": "Upgrade your workout wardrobe with our premium fitness apparel. Stay comfortable and stylish during your gym sessions with our high-quality activewear.",
+    "price": 24.99
+  },
+  {
+    "id": 5,
+    "name": "Muscle Gain",
+    "image": "https://i.ibb.co/Y0jwm4H/muscle-gain.png",
+    "description": "Visit our gym for a day and experience our fitness facilities. Try out our equipment, enjoy a workout, and get a taste of what our gym has to offer.",
+    "price": 39.99
+  },
+  {
+    "id": 6,
+    "name": "Weight Loss",
+    "image": "https://i.ibb.co/4N4WR2d/weight-loss.webp",
+    "description": "Upgrade your workout wardrobe with our premium fitness apparel. Stay comfortable and stylish during your gym sessions with our high-quality activewear.",
+    "price": 22.99
+  }
+]
