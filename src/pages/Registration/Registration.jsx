@@ -2,9 +2,12 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import swal from "sweetalert";
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const nameRef = useRef(null);
   const navigate = useNavigate();
@@ -22,17 +25,45 @@ const Registration = () => {
     const name = e.target.name.value;
     console.log(name, email, password);
 
+    // Password Requirement
+
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasDigit = /\d/.test(password);
+    const hasSpecialChar = /[@#$%^&+=!]/.test(password);
+
+    if (password.length < 6) {
+      setErrorMessage("Password should be at least 6 characters or longer");
+      return;
+    } else if (!hasUpperCase) {
+      setErrorMessage("Password must contain at least one upper case letter");
+      return;
+    } else if (!hasLowerCase) {
+      setErrorMessage("Password must contain at least one lower case letter");
+      return;
+    } else if (!hasDigit) {
+      setErrorMessage("Password must contain at least one digit");
+      return;
+    } else if (!hasSpecialChar) {
+      setErrorMessage("Password must contain at least one special character");
+      return;
+    }
+
     // Create User Function
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
         e.target.reset();
         navigate("/");
+        setSuccessMessage(
+          swal("Good job!", "You have successfully registered", "success")
+        );
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        setErrorMessage(errorMessage);
       });
   };
   return (
@@ -87,11 +118,6 @@ const Registration = () => {
                   {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
                 </span>
               </div>
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <button className="btn bg-orange-500 text-white text-2xl">
@@ -104,10 +130,10 @@ const Registration = () => {
                 Login
               </Link>
             </p>
-            {/* {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
             {successMessage && (
               <p className="text-green-600">{successMessage}</p>
-            )} */}
+            )}
           </form>
         </div>
       </div>

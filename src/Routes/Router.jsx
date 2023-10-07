@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import CardDetails from "../components/CardDetails/CardDetails";
 import PrivateRoute from "./PrivateRoute";
 import Registration from "../pages/Registration/Registration";
+import About from "../components/About/About";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/login",

@@ -23,6 +23,7 @@ const Login = () => {
     createSignInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        e.target.reset();
         setSuccessMessage(
           swal("Good job!", "You have successfully logged in", "success")
         );
@@ -61,7 +62,7 @@ const Login = () => {
               </label>
               <div className="relative">
                 <input
-                  //   type={showPassword ? "text" : "password"}
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   name="password"
                   className="input input-bordered w-full"
