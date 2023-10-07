@@ -26,5 +26,5 @@ const Card = ({ data }) => {
 
 export default Card;
 Card.propTypes = {
-  data: PropTypes.func,
+  data: PropTypes.obj,
 };

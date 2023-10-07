@@ -18,7 +18,7 @@ const CardDetails = () => {
     );
     setCard(findCard);
   }, [cards, id]);
-  console.log(card);
+  //   console.log(card);
 
   return <Details card={card}></Details>;
 };

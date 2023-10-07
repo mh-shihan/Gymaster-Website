@@ -29,13 +29,16 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const createSignInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
@@ -43,13 +46,21 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("On auth state changed:", currentUser);
       setUser(currentUser);
+      setLoading(false);
       return () => {
         unSubscribe();
       };
     });
   }, [auth]);
 
-  const authInfo = { user, gymData, createUser, createSignInUser, logOut };
+  const authInfo = {
+    user,
+    gymData,
+    loading,
+    createUser,
+    createSignInUser,
+    logOut,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

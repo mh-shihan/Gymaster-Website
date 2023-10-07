@@ -4,6 +4,8 @@ import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import CardDetails from "../components/CardDetails/CardDetails";
+import PrivateRoute from "./PrivateRoute";
+import Registration from "../pages/Registration/Registration";
 
 const router = createBrowserRouter([
   {
@@ -20,9 +22,17 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
+        path: "/registration",
+        element: <Registration></Registration>,
+      },
+      {
         path: "/details/:id",
         loader: () => fetch("/gymData.json"),
-        element: <CardDetails></CardDetails>,
+        element: (
+          <PrivateRoute>
+            <CardDetails></CardDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },
