@@ -3,27 +3,24 @@ import PropTypes from "prop-types";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { app } from "../firebase/Firebase.config";
+import auth from "../firebase/Firebase.config";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   const [gymData, setGymData] = useState();
   const [loading, setLoading] = useState(true);
-
-  const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
   useEffect(() => {
     setLoading();
-    fetch("/gymData.json")
+    fetch("./gymData.json")
       .then((res) => res.json())
       .then((data) => {
         setGymData(data);
@@ -51,15 +48,14 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
       console.log("On Auth State change :", currentUser);
-
+      setUser(currentUser);
       setLoading(false);
     });
     return () => {
       unSubscribe();
     };
-  }, [auth]);
+  }, []);
 
   const authInfo = {
     user,

@@ -1,21 +1,25 @@
+import PropTypes from "prop-types";
 import { useContext } from "react";
+
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Navigate } from "react-router-dom";
-import PropTypes from "prop-types";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-  console.log(loading);
-
+  console.log("Outside loading", loading);
   if (loading) {
-    return <span className="loading loading-dots loading-lg"></span>;
-  }
-  console.log("Inside Private Route:", user);
-  if (user) {
+    console.log("Inside loading", loading);
+    return (
+      <span className=" text-3xl text-center loading loading-spinner loading-lg"></span>
+    );
+  } else if (loading == undefined) {
+    return (
+      <span className=" text-3xl text-center loading loading-spinner loading-lg"></span>
+    );
+  } else if (user) {
     return children;
   }
-
-  return <Navigate to="/login" replace></Navigate>;
+  return <Navigate to="/login"></Navigate>;
 };
 
 export default PrivateRoute;

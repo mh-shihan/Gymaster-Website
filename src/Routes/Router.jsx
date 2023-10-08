@@ -4,11 +4,11 @@ import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import CardDetails from "../components/CardDetails/CardDetails";
-import PrivateRoute from "./PrivateRoute";
 import Registration from "../pages/Registration/Registration";
 import About from "../components/About/About";
 import ClassSchedule from "../pages/ClassSchedule/ClassSchedule";
 import BlogPost from "../pages/BlogPost/BlogPost";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
