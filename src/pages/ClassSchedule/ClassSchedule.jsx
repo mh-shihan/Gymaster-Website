@@ -25,7 +25,7 @@ const ClassSchedule = () => {
       <h1 className="text-4xl text-white font-bold mb-4 text-center">
         Class Schedule
       </h1>
-      <div className="flex space-x-2 justify-center">
+      <div className="flex space-x-2 justify-center flex-wrap gap-2">
         {daysOfWeek.map((day) => (
           <button
             key={day}

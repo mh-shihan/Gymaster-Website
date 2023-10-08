@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import profile from "../assets/user.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -72,8 +73,9 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
-        <div className="">
+      <div className="navbar-end flex flex-col md:flex-row ml-8">
+        <img className="h-8 w-8 mr-2 rounded-full" src={profile} alt="" />
+        <div>
           {user ? (
             <div className="flex flex-col-reverse xl:flex-row ">
               <p className=" text-xs md:text-base">{user?.email}</p>
