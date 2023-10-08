@@ -67,10 +67,12 @@ const Registration = () => {
       });
   };
   return (
-    <div className="hero bg-base-200">
-      <div className="hero-content w-1/2 flex-col lg:flex-col">
+    <div className="xl:hero bg-base-200">
+      <div className="hero-content xl:w-1/2 flex-col lg:flex-col">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold text-orange-500">Register now!</h1>
+          <h1 className="text-3xl xl:text-5xl font-bold text-orange-500">
+            Register now!
+          </h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
@@ -120,7 +122,7 @@ const Registration = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-orange-500 text-white text-2xl">
+              <button className="btn bg-orange-500 text-white text-xl xl:text-2xl">
                 Register
               </button>
             </div>

@@ -73,23 +73,25 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {user ? (
-          <>
-            <p>{user?.email}</p>
-            <a
-              onClick={handleLogOut}
-              className="btn btn-sm bg-orange-500 text-white ml-2"
-            >
-              Sign Out
-            </a>
-          </>
-        ) : (
-          <Link to="/registration">
-            <button className="btn btn-sm bg-orange-500 text-white ml-2">
-              Join Us
-            </button>
-          </Link>
-        )}
+        <div className="">
+          {user ? (
+            <div className="flex flex-col-reverse xl:flex-row ">
+              <p className=" text-xs md:text-base">{user?.email}</p>
+              <button
+                onClick={handleLogOut}
+                className=" md:btn-sm text-sm md:text-lg px-2 rounded-sm block mx-auto font-bold bg-orange-500 text-white ml-5 md:ml-2"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <Link to="/registration">
+              <button className="btn btn-sm bg-orange-500 text-white ml-2">
+                Join Us
+              </button>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
