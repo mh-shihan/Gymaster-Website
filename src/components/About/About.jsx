@@ -19,9 +19,9 @@ const About = () => {
         </h4>
         <p className="text-white text-justify text-sm md:text-base">
           At GYMESTER, we believe that every journey to fitness is unique.
-          Whether you're a seasoned athlete or taking your first step towards a
-          healthier lifestyle, we're here to guide and support you every step of
-          the way.
+          Whether you are a seasoned athlete or taking your first step towards a
+          healthier lifestyle, we are here to guide and support you every step
+          of the way.
         </p>
         <p className="text-white text-justify text-sm md:text-base">
           {" "}

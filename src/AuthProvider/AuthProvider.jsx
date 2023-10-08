@@ -1,23 +1,25 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { app } from "../firebase/Firebase.config";
-// import { useLoaderData } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const [gymData, setGymData] = useState();
   const [loading, setLoading] = useState(true);
 
   const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
   useEffect(() => {
     setLoading();
@@ -37,6 +39,11 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+
+  const googleLogin = () => {
+    return signInWithPopup(auth, provider);
+  };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -44,13 +51,14 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("On auth state changed:", currentUser);
       setUser(currentUser);
+      console.log("On Auth State change :", currentUser);
+
       setLoading(false);
-      return () => {
-        unSubscribe();
-      };
     });
+    return () => {
+      unSubscribe();
+    };
   }, [auth]);
 
   const authInfo = {
@@ -59,6 +67,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUser,
     createSignInUser,
+    googleLogin,
     logOut,
   };
   return (

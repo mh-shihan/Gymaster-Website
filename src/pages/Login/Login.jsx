@@ -8,7 +8,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createSignInUser } = useContext(AuthContext);
+  const { createSignInUser, googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -36,6 +36,16 @@ const Login = () => {
       });
   };
 
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div className="hero bg-base-200">
       <div className="hero-content w-1/2 flex-col lg:flex-col">
@@ -92,9 +102,9 @@ const Login = () => {
               <p className="text-green-600">{successMessage}</p>
             )}
           </form>
-          {/* <button onClick={handleGoogleLogin} className="btn btn-ghost">
-        Login With Google
-      </button> */}
+          <button onClick={handleGoogleLogin} className="btn btn-ghost">
+            Login With Google
+          </button>
         </div>
       </div>
     </div>

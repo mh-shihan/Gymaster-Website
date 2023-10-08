@@ -5,18 +5,17 @@ import PropTypes from "prop-types";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
+  console.log(loading);
 
   if (loading) {
-    return (
-      <span className=" text-3xl text-center loading loading-spinner loading-lg"></span>
-    );
+    return <span className="loading loading-dots loading-lg"></span>;
   }
-
+  console.log("Inside Private Route:", user);
   if (user) {
     return children;
   }
 
-  return <Navigate to="/login"></Navigate>;
+  return <Navigate to="/login" replace></Navigate>;
 };
 
 export default PrivateRoute;

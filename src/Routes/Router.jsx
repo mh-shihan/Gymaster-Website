@@ -7,6 +7,7 @@ import CardDetails from "../components/CardDetails/CardDetails";
 import PrivateRoute from "./PrivateRoute";
 import Registration from "../pages/Registration/Registration";
 import About from "../components/About/About";
+import ClassSchedule from "../pages/ClassSchedule/ClassSchedule";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <CardDetails></CardDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "classSchedule",
+        element: (
+          <PrivateRoute>
+            <ClassSchedule></ClassSchedule>
           </PrivateRoute>
         ),
       },
