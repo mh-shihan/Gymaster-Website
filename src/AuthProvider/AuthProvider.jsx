@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setLoading();
-    fetch("./gymData.json")
+    fetch("/gymData.json")
       .then((res) => res.json())
       .then((data) => {
         setGymData(data);
