@@ -29,6 +29,9 @@ const Navbar = () => {
       <li className="font-semibold text-lg text-white">
         <NavLink to="/classSchedule">Class Schedule</NavLink>
       </li>
+      <li className="font-semibold text-lg text-white">
+        <NavLink to="/blog">Blog Post</NavLink>
+      </li>
     </>
   );
 

@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import Registration from "../pages/Registration/Registration";
 import About from "../components/About/About";
 import ClassSchedule from "../pages/ClassSchedule/ClassSchedule";
+import BlogPost from "../pages/BlogPost/BlogPost";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +24,7 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About></About>,
       },
-      {
-        path: "/login",
-        element: <Login></Login>,
-      },
+
       {
         path: "/registration",
         element: <Registration></Registration>,
@@ -41,12 +39,24 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "classSchedule",
+        path: "/classSchedule",
         element: (
           <PrivateRoute>
             <ClassSchedule></ClassSchedule>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/blog",
+        element: (
+          <PrivateRoute>
+            <BlogPost></BlogPost>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },
