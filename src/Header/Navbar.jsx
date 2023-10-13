@@ -81,7 +81,7 @@ const Navbar = () => {
               <p className=" text-xs md:text-base">{user?.email}</p>
               <button
                 onClick={handleLogOut}
-                className=" md:btn-sm text-sm md:text-lg  px-1 rounded-sm block mx-auto font-medium bg-orange-500 text-white ml-5 md:ml-2"
+                className=" md:btn-sm text-sm md:text-lg  px-1 rounded-md block mx-auto font-medium bg-orange-500 text-white ml-5 md:ml-2"
               >
                 Sign Out
               </button>
