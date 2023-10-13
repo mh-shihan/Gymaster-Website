@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import swal from "sweetalert";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -10,6 +11,9 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { createSignInUser, googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const location = useLocation();
+  console.log("Location inside Login page", location);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,10 +28,18 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         e.target.reset();
-        setSuccessMessage(
-          swal("Good job!", "You have successfully logged in", "success")
-        );
-        navigate("/");
+
+        // React Toast
+        toast.success("Login successful", {
+          position: "top-right",
+          autoClose: 2000,
+          closeOnClick: true,
+          hideProgressBar: false, // Show or hide the progress bar
+          theme: "dark",
+        });
+
+        // Navigate After Login
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -87,7 +99,7 @@ const Login = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-orange-500 text-white text-2xl">
+              <button className="btn  bg-orange-500 text-white text-2xl">
                 Login
               </button>
             </div>
