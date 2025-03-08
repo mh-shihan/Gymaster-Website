@@ -10,4 +10,4 @@
 
  ## 🔗 Live Demo
 
-👉 [Play Word Rush - The Balloon Popper Game](https://react-auth-event-management.web.app)
+👉 [Click Here](https://react-auth-event-management.web.app)
