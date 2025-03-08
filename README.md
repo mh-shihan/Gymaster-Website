@@ -7,3 +7,7 @@
 - There are two different private routes in this website. one is blog and another one is Class schedule. Without login this site anyone can not see these private routes.
 - There is a "Join Us" button on the top right corner of the navbar. If user logged in then the button become sign out button.If any one click the sign out button then the user will sign out.
 - After Logged in user can see his/her email address on the top right corner of the navbar.
+
+ ## 🔗 Live Demo
+
+👉 [Play Word Rush - The Balloon Popper Game](https://react-auth-event-management.web.app)
