@@ -1,12 +1,14 @@
-# React Event Management
+# GYMESTER - Gym Management Website
 
-## 5 Features of this Website
+## Introduction
+GYMESTER is a comprehensive gym website where users can explore various gym-related services, read informative blogs, and view class schedules. The website ensures user authentication, allowing access to private routes only after logging in.
 
-- I have created gym Website. The name of the website is "GYMESTER". In this website anyone can access using gmail or creating a user email.
-- There are 6 types of services in this website. All are gym related. In every card of the service section there is details button. If anyone click the details button then he/she will be able to see the details of the particular service. But there is one condition at first you have to login in this website to see the details.
-- There are two different private routes in this website. one is blog and another one is Class schedule. Without login this site anyone can not see these private routes.
-- There is a "Join Us" button on the top right corner of the navbar. If user logged in then the button become sign out button.If any one click the sign out button then the user will sign out.
-- After Logged in user can see his/her email address on the top right corner of the navbar.
+## Features
+- **User Authentication**: Users can sign up or log in using their email or Gmail.
+- **Service Details**: The website offers six types of gym-related services, and users can view detailed descriptions after logging in.
+- **Private Routes**: Certain pages like "Blog" and "Class Schedule" are restricted and require authentication.
+- **Join Us / Sign Out**: The top-right corner of the navbar dynamically displays a "Join Us" button for new users or a "Sign Out" button for logged-in users.
+- **User Information**: After logging in, users can see their email displayed on the navbar.
 
  ## 🔗 Live Demo
 
