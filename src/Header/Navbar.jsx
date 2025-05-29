@@ -25,9 +25,11 @@ const Navbar = () => {
       <li className="font-semibold text-lg text-white">
         <NavLink to="/about">About</NavLink>
       </li>
-      <li className="font-semibold text-lg text-white">
-        <NavLink to="/login">Login</NavLink>
-      </li>
+      {!user && (
+        <li className="font-semibold text-lg text-white">
+          <NavLink to="/login">Login</NavLink>
+        </li>
+      )}
       <li className="font-semibold text-lg text-white">
         <NavLink to="/classSchedule">Class Schedule</NavLink>
       </li>
