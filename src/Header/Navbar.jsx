@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import profile from "../assets/user.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleLogOut = () => {
     logOut()
@@ -74,18 +75,28 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end flex flex-col md:flex-row ml-8">
-        <img className="h-8 w-8 mr-2 rounded-full" src={profile} alt="" />
+        {user && (
+          <div
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="relative flex items-center "
+          >
+            {isHovered && (
+              <p className="absolute right-10 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs md:text-base px-2 py-1 rounded shadow-lg z-10">
+                {user?.email}
+              </p>
+            )}
+            <img className="h-8 w-8 mr-2 rounded-full" src={profile} alt="" />
+          </div>
+        )}
         <div>
           {user ? (
-            <div className="flex flex-col-reverse xl:flex-row ">
-              <p className=" text-xs md:text-base">{user?.email}</p>
-              <button
-                onClick={handleLogOut}
-                className=" md:btn-sm text-sm md:text-lg  px-1 rounded-md block mx-auto font-medium bg-orange-500 text-white ml-5 md:ml-2"
-              >
-                Sign Out
-              </button>
-            </div>
+            <button
+              onClick={handleLogOut}
+              className=" md:btn-sm text-sm md:text-lg  px-1 rounded-md block mx-auto font-medium bg-orange-500 text-white ml-5 md:ml-2"
+            >
+              Sign Out
+            </button>
           ) : (
             <Link to="/registration">
               <button className="btn btn-sm bg-orange-500 text-white ml-2">
